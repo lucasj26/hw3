@@ -86,6 +86,30 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    Node* smaller = nullptr;
+    Node* larger = nullptr;
+    int pivot = 10;
+
+    llpivot(head,smaller,larger,pivot);
+    cout << "Smaller or equal: ";
+    print(smaller);
+    cout << "larger: ";
+    print(larger);
+
+
+    Node* filter = readList(argv[1]);
+
+
+    struct RemoveEven {
+        bool operator()(int value) { return value % 2 == 0; }
+    };
+
+    filter = llfilter(filter,RemoveEven());
+    print(filter);
+
+    dealloc(smaller);
+    dealloc(larger);
+    dealloc(filter);
 
 
 
